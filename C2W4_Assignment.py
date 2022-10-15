@@ -19,11 +19,7 @@ import os
 
 
 # This line is added
-os.chdir('/mnt/c/Users/abali/Desktop/INZVA_TF_Week2')
-
-
 TRAINING_FILE = 'W4_Data/sign_mnist_train.csv'
-VALIDATION_FILE = 'W4_Data/sign_mnist_test.csv'
 
 # Unlike previous assignments, you will not have the actual images provided, instead you will have the data serialized as `csv` files.
 # 
@@ -100,8 +96,11 @@ def parse_data_from_input(filename):
 
 
 # Test your function
-training_images, training_labels = parse_data_from_input(TRAINING_FILE)
-validation_images, validation_labels = parse_data_from_input(VALIDATION_FILE)
+TRAIN_SPLIT = 0.99
+
+images, labels = parse_data_from_input(TRAINING_FILE)
+training_images, training_labels = images[:int(len(images) * TRAIN_SPLIT)], labels[:int(len(images) * TRAIN_SPLIT)]
+validation_images, validation_labels = images[int(len(images) * TRAIN_SPLIT):], labels[int(len(images) * TRAIN_SPLIT):]
 
 print(f"Training images has shape: {training_images.shape} and dtype: {training_images.dtype}")
 print(f"Training labels has shape: {training_labels.shape} and dtype: {training_labels.dtype}")
