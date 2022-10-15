@@ -99,8 +99,9 @@ def parse_data_from_input(filename):
 TRAIN_SPLIT = 0.99
 
 images, labels = parse_data_from_input(TRAINING_FILE)
-training_images, training_labels = images[:int(len(images) * TRAIN_SPLIT)], labels[:int(len(images) * TRAIN_SPLIT)]
-validation_images, validation_labels = images[int(len(images) * TRAIN_SPLIT):], labels[int(len(images) * TRAIN_SPLIT):]
+# Split the data into training and validation using TRAIN_SPLIT on images
+training_images, training_labels =  # YOUR CODE HERE
+validation_images, validation_labels =   # YOUR CODE HERE
 
 print(f"Training images has shape: {training_images.shape} and dtype: {training_images.dtype}")
 print(f"Training labels has shape: {training_labels.shape} and dtype: {training_labels.dtype}")
